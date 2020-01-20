@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TesteCampoTreinamento" project="CursoSelenium" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="TesteCampoTreinamento" time="16.695">
+    <testcase name="deveInteragirComCombo" classname="TesteCampoTreinamento" time="3.838"/>
+    <testcase name="deveInteragirComRadioButton" classname="TesteCampoTreinamento" time="3.339"/>
+    <testcase name="testeTextField" classname="TesteCampoTreinamento" time="3.143"/>
+    <testcase name="deveInteragirComCheckBox" classname="TesteCampoTreinamento" time="3.24"/>
+    <testcase name="deveInteragirComTextArea" classname="TesteCampoTreinamento" time="3.135"/>
+  </testsuite>
+</testrun>

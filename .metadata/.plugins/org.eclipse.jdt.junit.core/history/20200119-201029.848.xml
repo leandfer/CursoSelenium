@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TesteCampoTreinamento" project="CursoSelenium" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="TesteCampoTreinamento" time="41.951">
+    <testcase name="deveInteragirComCombo" classname="TesteCampoTreinamento" time="4.67"/>
+    <testcase name="deveInteragirComRadioButton" classname="TesteCampoTreinamento" time="4.619"/>
+    <testcase name="deveVerificarValoresCombo" classname="TesteCampoTreinamento" time="3.954"/>
+    <testcase name="DeveInteragirComBotoes" classname="TesteCampoTreinamento" time="4.51"/>
+    <testcase name="deveVerificarValoresMultiplos" classname="TesteCampoTreinamento" time="5.191"/>
+    <testcase name="DeveInteragirComLinks" classname="TesteCampoTreinamento" time="3.789"/>
+    <testcase name="testeTextField" classname="TesteCampoTreinamento" time="3.707"/>
+    <testcase name="deveInteragirComCheckBox" classname="TesteCampoTreinamento" time="3.888"/>
+    <testcase name="deveInteragirComTextArea" classname="TesteCampoTreinamento" time="3.856"/>
+    <testcase name="deveBuscarTextosNaPagina" classname="TesteCampoTreinamento" time="3.767"/>
+  </testsuite>
+</testrun>

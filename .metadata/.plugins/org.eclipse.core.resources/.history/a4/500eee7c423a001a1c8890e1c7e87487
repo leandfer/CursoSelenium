@@ -1,0 +1,14 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TesteGoogle {
+	
+	@Test
+	public void tetes() {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://www.google.com.br");
+		
+		System.out.println(driver.getTitle());
+	}
+
+}

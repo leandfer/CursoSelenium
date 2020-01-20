@@ -1,0 +1,23 @@
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class DSL {
+	
+	private WebDriver driver;
+	
+	
+	public DSL(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+
+	public void escreve(String id_campo, String texto) {
+		driver.findElement(By.id(id_campo)).sendKeys(texto);
+	}
+	
+	public void obterValorCampo(String id_campo) {
+		Assert.assertEquals(id_campo, driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
+	}
+
+}

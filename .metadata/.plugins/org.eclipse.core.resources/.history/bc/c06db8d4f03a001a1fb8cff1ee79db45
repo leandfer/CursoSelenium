@@ -1,0 +1,66 @@
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class TesteCadastro {
+	
+	public WebDriver abrir() {
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");	
+		return driver;
+	}
+	
+	@Test
+	public void gravarCadastro() {
+		
+		WebDriver driver = abrir();
+		
+		driver.findElement(By.id("elementosForm:nome")).sendKeys("LEANDRO");
+		Assert.assertEquals("LEANDRO", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
+		
+		driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("FERREIRA");
+		Assert.assertEquals("FERREIRA", driver.findElement(By.id("elementosForm:sobrenome")).getAttribute("value"));
+		
+		driver.findElement(By.id("elementosForm:sexo:0")).click();
+		Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:0")).isSelected());
+		
+		driver.findElement(By.id("elementosForm:comidaFavorita:2")).click();
+		Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:2")).isSelected());
+		
+		WebElement element = driver.findElement(By.id("elementosForm:escolaridade"));
+		Select combo = new Select(element);
+		combo.selectByVisibleText("2o grau completo");
+		Assert.assertEquals("2o grau completo", combo.getFirstSelectedOption().getText());
+		
+		element = driver.findElement(By.id("elementosForm:esportes"));
+		Select option = new Select(element);	
+		option.selectByVisibleText("Natacao");
+		option.selectByVisibleText("Corrida");
+		option.selectByVisibleText("Karate");
+		
+		List<WebElement> allSelectOption = combo.getAllSelectedOptions();
+		Assert.assertEquals(3, allSelectOption.size());
+		
+		
+		driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("Teste de Cadastro");
+		Assert.assertEquals("Teste de Cadastro", driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
+		
+		driver.findElement(By.id("elementosForm:cadastrar")).click();
+		Assert.assertEquals("Nome: Leandro", driver.findElement(By.id("descNome")).getAttribute("value"));
+		
+		
+		
+		
+		
+		
+	}
+	
+
+}

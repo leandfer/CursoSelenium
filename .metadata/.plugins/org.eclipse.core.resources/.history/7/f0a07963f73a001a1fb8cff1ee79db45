@@ -1,0 +1,49 @@
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+
+public class TesteFrame {
+	
+	public WebDriver abrir() {
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");	
+		return driver;
+	}
+	
+	@Test
+	public void deveInteragirComFrame() {
+		WebDriver driver = abrir();
+		
+		//muda foco para frame
+		driver.switchTo().frame("frame1");
+		driver.findElement(By.id("frameButton")).click();
+		Alert alert = driver.switchTo().alert();		
+		
+		String msg = alert.getText();
+		Assert.assertEquals("Frame OK!", alert.getText());
+		alert.accept();
+		
+		driver.switchTo().defaultContent();
+		driver.findElement(By.id("elementosForm:nome")).sendKeys(msg);	
+		
+	}
+	
+	@Test
+	public void deveInteragirComPoupUp() {
+		WebDriver driver = abrir();
+		
+		driver.findElement(By.id("buttonPopUpEasy")).click();
+		driver.switchTo().window("Popup");
+		driver.findElement(By.tagName("testarea")).sendKeys("Deu Cert");
+		driver.close();
+		driver.switchTo().window("");
+	}
+	
+
+}

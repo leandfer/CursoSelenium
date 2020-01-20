@@ -1,0 +1,28 @@
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TesteCadastro {
+	
+	public WebDriver abrir() {
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");	
+		return driver;
+	}
+	
+	@Test
+	public void gravarCadastro() {
+		
+		WebDriver driver = abrir();
+		
+		driver.findElement(By.id("elementosForm:nome")).sendKeys("LEANDRO D FERREIRA");
+		Assert.assertEquals("LEANDRO D FERREIRA", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
+		
+		
+	}
+	
+
+}

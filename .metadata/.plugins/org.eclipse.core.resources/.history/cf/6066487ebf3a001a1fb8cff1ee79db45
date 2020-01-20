@@ -1,0 +1,78 @@
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ById;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class TesteCampoTreinamento {
+	
+	public WebDriver abrir() {
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");	
+		return driver;
+	}
+	
+	@Test
+	public void testeTextField() {
+		WebDriver driver;
+		driver = abrir();		
+		driver.findElement(By.id("elementosForm:nome")).sendKeys("Teste de Escrita");
+		Assert.assertEquals("Teste de Escrita", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
+		
+		
+		driver.quit();
+	}
+	
+	@Test
+	public void deveInteragirComTextArea() {
+		WebDriver driver;
+		driver = abrir();	
+		
+		driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("Ola Mundo Como Vai Voce\n\nEu Estou bem e voce");
+		//Assert.assertEquals("Ola Mundo Como Vai Voce", driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
+		
+		driver.quit();
+	}
+	
+	@Test
+	public void deveInteragirComRadioButton() {
+		WebDriver driver;
+		driver = abrir();
+		
+		driver.findElement(By.id("elementosForm:sexo:0")).click();
+		Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:0")).isSelected());
+		
+		driver.quit();
+	}
+	
+	@Test
+	public void deveInteragirComCheckBox() {
+		WebDriver driver;
+		driver = abrir();
+		
+		driver.findElement(By.id("elementosForm:comidaFavorita:2")).click();
+		Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:2")).isSelected());
+		
+		//driver.quit();
+	}
+	
+	@Test
+	public void deveInteragirComCombo() {
+		WebDriver driver;
+		driver = abrir();	
+		
+		driver.findElement(By.id("elementosForm:comidaFavorita:2")).click();
+		Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:2")).isSelected());
+		
+		//driver.quit();
+	}
+	
+	
+
+}
